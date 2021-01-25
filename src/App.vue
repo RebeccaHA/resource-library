@@ -1,13 +1,23 @@
 <template>
   <ul>
-    <li></li>
+    <learning-resource
+      v-for="storedResource in storedResources"
+      :key="storedResource.id"
+      :title="storedResource.title"
+      :description="storedResource.description"
+      :link="storedResource.link"
+    ></learning-resource>
   </ul>
 </template>
 <script>
+import LearningResource from '@/components/learning-resources/LearningResource';
 export default {
+  components: {
+    LearningResource
+  },
   data() {
     return {
-      storedResoures: [
+      storedResources: [
         {
           id: 'Official guide',
           title: 'Official guide',
