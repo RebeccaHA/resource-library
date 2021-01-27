@@ -1,11 +1,15 @@
 <template>
+  <Header title="Learning Resources"></Header>
   <stored-resources></stored-resources>
 </template>
 <script>
 import StoredResources from '@/components/learning-resources/StoredResources';
+import Header from '@/components/layouts/Header';
+
 export default {
   components: {
-    StoredResources
+    StoredResources,
+    Header
   }
 };
 </script>
