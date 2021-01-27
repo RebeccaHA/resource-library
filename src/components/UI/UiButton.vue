@@ -26,12 +26,15 @@ button:active {
 
 .flat {
   background-color: transparent;
-  color: #3a0061;
+  color: black;
   border: none;
 }
 
 .flat:hover,
 .flat:active {
-  background-color: #edd2ff;
+  background-color: #b57507;
+  border-color: #b57507;
+  background-color: black;
+  color: white;
 }
 </style>

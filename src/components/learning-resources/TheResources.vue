@@ -1,8 +1,14 @@
 <template>
   <div>
     <card>
-      <ui-button @click="selectTab('stored-resources')">Stored Resources</ui-button>
-      <ui-button @click="selectTab('add-resource')">Add Resources</ui-button>
+      <ui-button
+        @click="selectTab('stored-resources')"
+        :mode="isSelected === 'stored-resources'? null : 'flat'"
+      >Stored Resources</ui-button>
+      <ui-button
+        @click="selectTab('add-resource')"
+        :mode="isSelected === 'add-resources'? null : 'flat'"
+      >Add Resources</ui-button>
     </card>
     <component :is="isSelected"></component>
   </div>
