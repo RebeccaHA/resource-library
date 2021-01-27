@@ -19,13 +19,32 @@ export default {
   },
   data() {
     return {
-      isSelected: 'stored-resources'
+      isSelected: 'stored-resources',
+      resources: [
+        {
+          id: 'Official guide',
+          title: 'Official guide',
+          description: 'The Official vue documentation',
+          link: 'https://vuejs.org'
+        },
+        {
+          id: 'Google',
+          title: 'Google',
+          description: 'The Official google',
+          link: 'http://www.google.com'
+        }
+      ]
     };
   },
   methods: {
     selectTab(tab) {
       this.isSelected = tab;
     }
+  },
+  provide() {
+    return {
+      resources: this.resources
+    };
   }
 };
 </script>
