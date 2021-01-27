@@ -2,16 +2,16 @@
   <div>
     <h1>Add Resource</h1>
     <form @submit.prevent="submitForm">
-      <label>Title</label>
+      <label>Title:</label>
       <input type="text" v-model="title" />
       <br />
-      <label>Description</label>
+      <label>Description:</label>
       <input type="text" v-model="description" />
       <br />
-      <label>Link</label>
+      <label>Link:</label>
       <input type="text" v-model="link" />
       <br />
-      <UiButton>Submit</UiButton>
+      <ui-button>Submit</ui-button>
     </form>
   </div>
 </template>
