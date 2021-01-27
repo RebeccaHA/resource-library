@@ -3,7 +3,7 @@
     <card>
       <header>
         <h3>{{title}}</h3>
-        <button>Delete</button>
+        <ui-button>Delete</ui-button>
       </header>
 
       <p>{{description}}</p>
@@ -15,8 +15,12 @@
 </template>
 
 <script>
+import UiButton from '@/components/UI/UiButton';
 export default {
-  props: ['title', 'description', 'id', 'link']
+  props: ['title', 'description', 'id', 'link'],
+  components: {
+    UiButton
+  }
 };
 </script>
 <style scoped>
