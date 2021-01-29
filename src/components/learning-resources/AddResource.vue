@@ -14,6 +14,7 @@
         <br />
         <ui-button type="submit">Submit</ui-button>
       </form>
+
       <error-message v-if="invalidInput">
         <h3>Please fill out all the fields</h3>
         <ui-button>Close</ui-button>
@@ -23,7 +24,7 @@
 </template>
 
 <script>
-import ErrorMessage from '@components/UI/ErrorMessage';
+import ErrorMessage from '../UI/ErrorMessage';
 export default {
   components: {
     ErrorMessage
@@ -39,12 +40,12 @@ export default {
   },
   methods: {
     submitForm() {
-      if (this.title === '') {
-        this.invalidInput === true;
-      } else if (this.description === '') {
-        this.invalidInput === true;
-      } else if (this.link === '') {
-        this.invalidInput === true;
+      if (
+        this.title.trim() === '' ||
+        this.description.trim() === '' ||
+        this.link.trim() === ''
+      ) {
+        this.invalidInput = true;
       } else {
         const resource = {
           title: this.title,
@@ -52,7 +53,6 @@ export default {
           link: this.link
         };
         this.addResource(resource);
-        console.log(resource);
       }
     }
   }
