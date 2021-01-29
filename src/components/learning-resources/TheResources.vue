@@ -4,7 +4,9 @@
       <ui-button @click="selectTab('stored-resources')" :mode="storedButtonMode">Stored Resources</ui-button>
       <ui-button @click="selectTab('add-resource')" :mode="addButtonMode">Add Resources</ui-button>
     </card>
-    <component :is="isSelected"></component>
+    <keep-alive>
+      <component :is="isSelected"></component>
+    </keep-alive>
   </div>
 </template>
 
