@@ -47,11 +47,16 @@ export default {
   methods: {
     selectTab(tab) {
       this.isSelected = tab;
+    },
+    addResource(resource) {
+      this.resources.unshift(resource);
+      this.isSelected = 'stored-resources';
     }
   },
   provide() {
     return {
-      resources: this.resources
+      resources: this.resources,
+      addResource: this.addResource
     };
   }
 };

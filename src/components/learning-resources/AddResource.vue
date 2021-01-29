@@ -10,9 +10,9 @@
         <input type="text" v-model="description" />
         <br />
         <label>Link:</label>
-        <input type="text" v-model="link" />
+        <input type="url" v-model="link" />
         <br />
-        <ui-button>Submit</ui-button>
+        <ui-button type="submit">Submit</ui-button>
       </form>
     </card>
   </div>
@@ -20,6 +20,7 @@
 
 <script>
 export default {
+  inject: ['addResource'],
   data() {
     return {
       title: '',
@@ -29,7 +30,13 @@ export default {
   },
   methods: {
     submitForm() {
-      console.log(this.title, this.description, this.link);
+      const resource = {
+        title: this.title,
+        description: this.description,
+        link: this.link
+      };
+      this.addResource(resource);
+      console.log(resource);
     }
   }
 };
@@ -37,6 +44,6 @@ export default {
 <style scoped>
 input {
   margin: 10px;
-  ,padding: 5px;
+  padding: 5px;
 }
 </style>
