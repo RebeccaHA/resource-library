@@ -34,7 +34,6 @@ button:active {
 .flat:active {
   background-color: #b57507;
   border-color: #b57507;
-  background-color: black;
   color: white;
 }
 </style>

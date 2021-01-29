@@ -1,14 +1,8 @@
 <template>
   <div>
     <card>
-      <ui-button
-        @click="selectTab('stored-resources')"
-        :mode="isSelected === 'stored-resources'? null : 'flat'"
-      >Stored Resources</ui-button>
-      <ui-button
-        @click="selectTab('add-resource')"
-        :mode="isSelected === 'add-resources'? null : 'flat'"
-      >Add Resources</ui-button>
+      <ui-button @click="selectTab('stored-resources')" :mode="storedButtonMode">Stored Resources</ui-button>
+      <ui-button @click="selectTab('add-resource')" :mode="addButtonMode">Add Resources</ui-button>
     </card>
     <component :is="isSelected"></component>
   </div>
@@ -41,6 +35,14 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    storedButtonMode() {
+      return this.isSelected === 'stored-resources' ? null : 'flat';
+    },
+    addButtonMode() {
+      return this.isSelected === 'add-resource' ? null : 'flat';
+    }
   },
   methods: {
     selectTab(tab) {
