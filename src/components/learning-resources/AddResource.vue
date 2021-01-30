@@ -15,20 +15,20 @@
         <ui-button type="submit">Submit</ui-button>
       </form>
 
-      <error-message v-if="invalidInput">
-        <h3>Please fill out all the fields</h3>
-        <ui-button>Close</ui-button>
+      <error-message v-if="invalidInput" title="Invalid input">
+        <template #default>
+          <p>Looks like you forgot to fill in an input field</p>
+        </template>
+        <template #actions>
+          <ui-button @click="okay">Okay</ui-button>
+        </template>
       </error-message>
     </card>
   </div>
 </template>
 
 <script>
-import ErrorMessage from '../UI/ErrorMessage';
 export default {
-  components: {
-    ErrorMessage
-  },
   inject: ['addResource'],
   data() {
     return {
@@ -54,6 +54,9 @@ export default {
         };
         this.addResource(resource);
       }
+    },
+    okay() {
+      this.invalidInput = false;
     }
   }
 };
