@@ -15,7 +15,7 @@
         <ui-button type="submit">Submit</ui-button>
       </form>
 
-      <error-message v-if="invalidInput" title="Invalid input">
+      <error-message v-if="invalidInput" title="Invalid input" @close="okay">
         <template #default>
           <p>Looks like you forgot to fill in an input field</p>
         </template>
