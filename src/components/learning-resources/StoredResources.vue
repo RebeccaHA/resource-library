@@ -6,6 +6,7 @@
       :title="resource.title"
       :description="resource.description"
       :link="resource.link"
+      @click="deleteResource(resource.id)"
     ></learning-resource>
   </ul>
 </template>
@@ -13,7 +14,7 @@
 <script>
 import LearningResource from './LearningResource.vue';
 export default {
-  inject: ['resources'],
+  inject: ['resources', 'deleteResource'],
   components: {
     LearningResource
   }

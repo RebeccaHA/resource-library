@@ -38,6 +38,13 @@ export default {
       ]
     };
   },
+  provide() {
+    return {
+      resources: this.resources,
+      addResource: this.addResource,
+      deleteResource: this.deleteResource
+    };
+  },
   computed: {
     storedButtonMode() {
       return this.isSelected === 'stored-resources' ? null : 'flat';
@@ -53,13 +60,11 @@ export default {
     addResource(resource) {
       this.resources.unshift(resource);
       this.isSelected = 'stored-resources';
+    },
+    deleteResource(id) {
+      const resIndex = this.resources.findIndex(res => res.id === id);
+      this.resources.splice(resIndex, 1);
     }
-  },
-  provide() {
-    return {
-      resources: this.resources,
-      addResource: this.addResource
-    };
   }
 };
 </script>
